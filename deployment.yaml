@@ -13,10 +13,14 @@ spec:
         app: flask-app
     spec:
   containers:
-  - name: flask-app
-    image: shraddhaskumar/flask-gitops:v3
-    ports:
-    - containerPort: 5000
-    env:
-    - name: APP_MODE
-      value: "production"
+- name: flask-app
+  image: shraddhaskumar/flask-gitops:v3
+  ports:
+  - containerPort: 5000
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "128Mi"
+    limits:
+      cpu: "200m"
+      memory: "256Mi"
